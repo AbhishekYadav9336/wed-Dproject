@@ -1,0 +1,87 @@
+<!-- file name must be index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {{>headlink}}
+</head>
+<body>
+   {{>navbar}}
+   <!-- main header -->
+   <div class="container-fluid main_header">
+     <div >
+        <div >
+            <div class="main_content">
+                <form class="temp_form">
+                    <input type="text" id="cityname" placeholder="Enter City Name" autocomplete="off">
+                    <input type="submit" value="search" id="submitbtn">
+                </form>
+            </div>
+        </div>
+        <div class="tem_info">
+            <div class="top_layer">
+                <p id="day">Tuesday</p> 
+                <p id="tdy_date">12-dec</p>
+            </div>
+            <div class="main_layer">
+                <p id="city_name">Get Output Here</p>
+                {{!-- data hide for hiding the unwanted input in search bar --}}
+                <div class="middle_layer data_hide">
+                  <p id="temp"><span>0</span><sup>o</sup>C</p>
+                  <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                </div>
+            </div>
+        </div>
+        </div>
+     </div>
+    </div>
+  <!-- footer code -->
+  <footer>
+    <p>here is the footer code.......</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    const getCurrentDay= () =>{
+    var weekday=new Array(7);
+    //getDay() return the index of day from zero so, for that we have to make the array
+    weekday[0]="Sun";
+    weekday[1]="Mon";
+    weekday[2]="Tue";
+    weekday[3]="Wed";
+    weekday[4]="Thr";
+    weekday[5]="Fri";
+    weekday[6]="Sat";
+    let currentTime= new Date();
+    days= weekday[currentTime.getDay()];
+   let day=document.getElementById("day");
+   day.innerText=days;
+    };
+    getCurrentDay();
+    const getCurrentDate=() =>{
+      var month = [
+        "jan",
+        "feb",
+        "mar",
+        "apr",
+        "may",
+        "jun",
+        "jul",
+        "aug",
+        "sep",
+        "oct",
+        "nov",
+        "dec"
+      ];
+      let now= new Date();//Date is in built function 
+      var month=month[now.getMonth()];
+      var date=now.getDate();
+      //for hour min sec------
+     
+      //for am and pm----
+        
+        let tdy_date=document.getElementById("tdy_date");
+        tdy_date.innerText=date+"-"+month;
+    }
+    getCurrentDate();
+    </script>
+</body>
+</html>
